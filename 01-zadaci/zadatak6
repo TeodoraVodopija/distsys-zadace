@@ -1,1 +1,6 @@
-
+def f6(par1, par2):
+    assert (isinstance(par1, list)) and (isinstance(par2, list)) or (isinstance(par1, dict)) and (isinstance(par2, dict))
+    return [x for n in (par1,par2) for x in n]
+    
+print(f6([1,2,1,2],[3,2]))
+print(f6({1:2,3:2},{5:2,4:1}))
