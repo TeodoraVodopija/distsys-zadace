@@ -1,3 +1,4 @@
 def f2(lista, dict1):
     assert (isinstance(lista, list)) and (isinstance(dict1, dict)) and all(isinstance(y, int) for y in lista)
-    return {k:v if v > 5 or v <10 in lista else -1 for v,k in zip(lista,dict1)}
+    if(len(lista) == len(dict1)):
+        return {k:v if v > 5 or v <10 in lista else -1 for v,k in zip(lista,dict1)}
