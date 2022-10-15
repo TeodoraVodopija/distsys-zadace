@@ -1,1 +1,5 @@
-
+def f3(lista):
+    assert (isinstance(lista, list)) and all(isinstance(y, dict) for y in lista)
+    return {"ukupno":{"artikli":k1} for k,k1,v in lista}
+    
+print(f3([{"cijena":8,"naziv":"Kruh","kolicina":3}, {"cijena":13,"naziv":"Sok","kolicina":2}, {"cijena":7,"naziv":"Upaljac","kolicina":1}]))
