@@ -1,1 +1,6 @@
+def f4(lista1, lista2):
+    if len(lista1) != len(lista2): 
+        print("Liste nisu istih duljina.")
+    return [lista1.value if (lista1[i].value == lista2[i].value) else -1 for i in zip(lista1,lista2)]
 
+print(f4([1,2,3,4,5],[2,2,4,4,5]))
