@@ -1,1 +1,4 @@
+def f5(lista):
+    return[{"id":v1, "ime":v2, "prezime":v3} for v1,v2,v3 in sorted(lista) if v2[0] == v3[0]]
 
+print(f5([(121,"Ivan","Ivic"),(431,"Pero","Horvat"),(31,"Marija","Maric")]))
