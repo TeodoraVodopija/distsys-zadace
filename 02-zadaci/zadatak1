@@ -1,0 +1,30 @@
+import asyncio
+import os
+import glob
+
+async def afun1(datoteka):
+    await asyncio.sleep(0.2)
+    #velicina pojedine datoteke u byte-ovima
+    for x in datoteka:
+        a = os.path.getsize(x)
+    #vraća dictionary, nazivi datoteka zapisani su bez ekstenzija
+    return [{"naziv":(v.rsplit('.',1)[0]), "velicina":a} for v in datoteka]
+
+def fun2(datoteka):
+    for x in datoteka:
+        with open(x, 'w') as f:
+            for a in range(10000):
+                f.write("%d%s" % (a+1, ","))
+
+async def main():
+    #kreiranje datoteka
+    for i in range(3): 
+        open("datoteka" + str(i+1) + ".txt", 'w').close()
+    #zapis imena datoteka u listu
+    lista = glob.glob(r'*.txt')
+    fun2(lista)
+    dat = await afun1(lista)
+    print(dat)
+    
+if __name__ == "__main__":
+    asyncio.create_task(main())
