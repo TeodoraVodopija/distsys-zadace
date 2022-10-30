@@ -1,19 +1,17 @@
 import asyncio
 import os
 import glob
+import numpy as np
 
 async def afun1(datoteka):
     await asyncio.sleep(0.2)
-    #velicina pojedine datoteke u byte-ovima
-    for x in datoteka:
-        a = os.path.getsize(x)
-    #vraća dictionary, nazivi datoteka zapisani su bez ekstenzija
-    return [{"naziv":(v.rsplit('.',1)[0]), "velicina":a} for v in datoteka]
+    #vraća dictionary, nazivi datoteka zapisani su bez ekstenzija te velicinu datoteka u byte-ovima
+    return [{"naziv":(v.rsplit('.',1)[0]), "velicina":os.path.getsize(v)} for v in datoteka]
 
 def fun2(datoteka):
     for x in datoteka:
         with open(x, 'w') as f:
-            for a in range(10000):
+            for a in range(np.random.randint(1,10000)):
                 f.write("%d%s" % (a+1, ","))
 
 async def main():
@@ -22,6 +20,7 @@ async def main():
         open("datoteka" + str(i+1) + ".txt", 'w').close()
     #zapis imena datoteka u listu
     lista = glob.glob(r'*.txt')
+    await afun1(lista)
     fun2(lista)
     dat = await afun1(lista)
     print(dat)
