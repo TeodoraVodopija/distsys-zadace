@@ -4,17 +4,15 @@ import psutil
 
 async def afunc1():
     for x in range(10):
-        a = np.random.normal(loc=0.0, scale=1.0, size=1000000)
-        await asyncio.sleep(0.1)
-        print(a)
+        np.random.normal(loc=0.0, scale=1.0, size=1000000)
+        await asyncio.sleep(0.9)
 
 async def afunc2():
-    print(psutil.cpu_percent(10))
+    print("Iskorištenost CPU-a u 10 sekundi iznosi: ", psutil.cpu_percent(10))
     
 async def main():
     await afunc1()
-    dat = await afunc2()
-    print("Iskorištenost CPU-a:", dat)
-
+    await afunc2()
+    
 if __name__ == "__main__":
     asyncio.create_task(main())
