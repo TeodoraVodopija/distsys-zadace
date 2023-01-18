@@ -1,4 +1,3 @@
-
 Casual broadcast algorithm
 
 on initialisation do
