@@ -1,5 +1,5 @@
 
-Causal broadcast algorithm
+Casual broadcast algorithm
 
 on initialisation do
   sendSeq := 0; delivered := ⟨0, 0, . . . , 0⟩; buffer := {}
