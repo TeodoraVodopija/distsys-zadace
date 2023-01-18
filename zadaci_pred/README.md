@@ -19,6 +19,7 @@ on receiving msg from reliable broadcast at node Ni do
     delivered[sender ] := delivered[sender ] + 1
   end while
 end on
+
 sendSeq = counts the number of messages broadcast by this node delivered = vector with one entry per node, counting the number of messages from each sender that this node has delivered buffer = for holding back messages until they are ready to be delivered deps = causal dependencies of the message
 
 Node sends a message and it attaches the sending node i an deps. Deps is copy of delivered. All messages that have been delivered locally prior to this broadcast must appear before the broadcast message in the causal order. Receiving a message = first add in buffer, then check the buffer for new messages deps ≤ delivered - true if the node has delivered all messages prior this, in causal order.
